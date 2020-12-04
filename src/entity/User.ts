@@ -2,22 +2,23 @@ import {
 	Entity,
 	PrimaryGeneratedColumn,
 	Column,
-	CreateDateColumn,
-	UpdateDateColumn
+	CreateDateColumn
 } from 'typeorm';
 
 export type UserRoleType = 'admin' | 'user';
 
 @Entity()
-class User {
+export class User {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 
-	@Column()
-	firstName: string;
+	@Column({
+		unique: true
+	})
+	username: string;
 
 	@Column()
-	lastName: string;
+	name: string;
 
 	@Column({
 		unique: true
@@ -36,9 +37,4 @@ class User {
 
 	@CreateDateColumn()
 	createdAt: Date;
-
-	@UpdateDateColumn()
-  updatedAt: Date;
 }
-
-export default User;

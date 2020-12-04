@@ -5,7 +5,7 @@
    "main": "dist/index.js",
    "scripts": {
       "start": "cross-env NODE_ENV=production node dist/index.js",
-      "dev": "nodemon src/index.ts --exec ts-node",
+      "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
       "test": "echo \"Error: no test specified\" && exit 1"
    },
    "keywords": [
@@ -35,9 +35,11 @@
       "cross-env": "^7.0.3",
       "eslint": "^7.14.0",
       "eslint-config-airbnb-base": "^14.2.1",
+      "eslint-import-resolver-typescript": "^2.3.0",
       "eslint-plugin-import": "^2.22.1",
       "nodemon": "^2.0.6",
       "ts-node": "^9.1.0",
+      "tsconfig-paths": "^3.9.0",
       "typescript": "^4.1.2"
    }
 }
