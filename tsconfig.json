@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@entity/*": ["./src/entity/*"]
+      "@entity": ["./src/entity/index.ts"]
     }
   }
 }

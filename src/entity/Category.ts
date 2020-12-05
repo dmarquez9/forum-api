@@ -8,11 +8,9 @@ import {
 @Entity()
 export class Category {
 	@PrimaryGeneratedColumn('uuid')
-	id: string;
+	id: number;
 
-	@Column({
-		unique: true
-	})
+	@Column()
 	title: string;
 
 	@Column()
