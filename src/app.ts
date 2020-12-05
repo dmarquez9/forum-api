@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import helmet from 'helmet';
 
 import routes from './routes';
 
@@ -12,6 +13,9 @@ class Server {
   }
 
   constructor() {
+    // Secure app by setting various HTTP headers
+    this.app.use(helmet());
+
     // Parses JSON request body
     this.app.use(bodyParser.json());
 
