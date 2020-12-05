@@ -2,8 +2,12 @@ import {
 	Entity,
 	PrimaryGeneratedColumn,
 	Column,
-	CreateDateColumn
+	CreateDateColumn,
+	BeforeInsert,
+	BeforeUpdate
 } from 'typeorm';
+
+import * as bcrypt from 'bcrypt';
 
 export type UserRoleType = 'admin' | 'user';
 
@@ -37,4 +41,16 @@ export class User {
 
 	@CreateDateColumn()
 	createdAt: Date;
+
+	@BeforeInsert()
+	@BeforeUpdate()
+	hashPassword() {
+		if (this.password) {
+			this.password = bcrypt.hashSync(this.password, 5);
+		}
+	}
+
+	comparePasswords(password) {
+		return bcrypt.compareSync(password, this.password);
+	}
 }
