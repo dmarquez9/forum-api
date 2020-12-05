@@ -1,9 +1,21 @@
-import express, { Router } from 'express';
+import { Router } from 'express';
 
 import AuthRoute from './AuthRoute';
 
-const router : Router = express.Router()
+class MainRoute {
+  private router : Router = Router();
 
-router.use('/auth', AuthRoute);
+  get get() : Router {
+    return this.router;
+  }
 
-export default router;
+  constructor() {
+    this.configure()
+  }
+
+  private configure () {
+    this.router.use('/auth', AuthRoute);
+  }
+}
+
+export default new MainRoute().get;

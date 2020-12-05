@@ -17,8 +17,6 @@ class AuthRoute {
     this.router.get('/login', this.controller.login);
     this.router.get('/register', this.controller.register);
     this.router.get('/verify', this.controller.verify);
-
-    return this.router;
   }
 }
 
