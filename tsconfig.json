@@ -14,7 +14,8 @@
     "baseUrl": ".",
     "paths": {
       "@entity": ["./src/entity/index.ts"],
-      "@controllers/*": ["./src/controllers/*"]
+      "@controllers/*": ["./src/controllers/*"],
+      "@app-types/*": ["./src/types/*"]
     }
   }
 }

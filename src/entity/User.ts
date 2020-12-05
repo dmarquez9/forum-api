@@ -9,7 +9,7 @@ import {
 
 import * as bcrypt from 'bcrypt';
 
-export type UserRoleType = 'admin' | 'user';
+import { UserRole } from '@app-types/user';
 
 @Entity()
 export class User {
@@ -37,7 +37,7 @@ export class User {
 		enum: ['admin', 'user'],
 		default: 'user'
 	})
-	role: UserRoleType;
+	role: UserRole;
 
 	@CreateDateColumn()
 	createdAt: Date;
