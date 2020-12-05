@@ -5,7 +5,7 @@ import cors from 'cors';
 import routes from './routes';
 
 class Server {
-  private app = express();
+  private app : express.Application = express();
 
   get get() {
     return this.app;
